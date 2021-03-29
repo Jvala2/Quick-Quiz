@@ -3,6 +3,23 @@ var count;
 var score = 0;
 var names = [];
 
+function blanketReset() {
+    document.getElementById("timer").style.display="none";
+    document.getElementById("quizInput").style.display="none";
+    document.getElementById("enter-name").style.display="none";
+    document.getElementById("buttonA").style.display="none";
+    document.getElementById("buttonB").style.display="none";
+    document.getElementById("buttonC").style.display="none";
+    document.getElementById("buttonD").style.display="none";
+    document.getElementById("submit-name").style.display="none";
+    document.getElementById("scoreboard").style.display="none";
+    document.getElementById("minus").textContent=""
+    document.getElementById("enter-name").textContent=""
+}
+
+function saveNames() {
+    
+}
 
 
     document.getElementById("timer").style.display="none";
@@ -46,6 +63,7 @@ function failQuiz() {
 };
 
 function startQuiz() {
+    blanketReset();
     document.getElementById("timer").style.display="block";
     document.getElementById("quizInput").style.display="block";
     document.getElementById("buttonA").style.display="block";
@@ -249,6 +267,10 @@ function displayQuestion5() {
 
 
 function finalScore() {
+    document.getElementById("buttonA").removeEventListener("click", wrongAnswer5)
+    document.getElementById("buttonB").removeEventListener("click", wrongAnswer5)
+    document.getElementById("buttonC").removeEventListener("click", wrongAnswer5)
+    document.getElementById("buttonD").removeEventListener("click", rightAnswer5)
     document.getElementById("timer").style.display="none";
     document.getElementById("buttonA").style.display="none";
     document.getElementById("buttonB").style.display="none";
@@ -262,9 +284,18 @@ function finalScore() {
 
 function pushName() {
     document.getElementById("scoreboard").style.display="block";
-    names.push(document.getElementById("enter-name"));
-    document.getElementById("scorelist").textContent=""+names+""
+    names.push(document.getElementById("enter-name").value+ " " +score+"");
+    localStorage.setItem("scores", JSON.stringify(names));
+    displayScoreboard();
 }
 
+function displayScoreboard() {
+    var scoreslist=localStorage.getItem("scores")
+    if (scoreslist) {
+        document.getElementById("scorelist").innerText=JSON.parse(scoreslist).join(", ")
+    }
+
+
+}
 
 document.getElementById("start").addEventListener("click", startQuiz);

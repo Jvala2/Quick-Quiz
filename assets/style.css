@@ -53,11 +53,11 @@ section {
 #scoreboard {
     display: flex;
     flex-direction: column;
+    height: 50px;
     justify-content: center;
     align-items: center;
     padding: 200px;
     flex-basis: 50%;
-    height: 50px;
     background:rgb(255, 250, 203)
 }
 
