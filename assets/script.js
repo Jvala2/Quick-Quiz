@@ -32,6 +32,13 @@ function startTimer() {
 
 function failQuiz() {
     document.getElementById("minus").textContent="TIME'S UP!";
+    document.getElementById("quizInput").style.display="none";
+    document.getElementById("enter-name").style.display="none";
+    document.getElementById("buttonA").style.display="none";
+    document.getElementById("buttonB").style.display="none";
+    document.getElementById("buttonC").style.display="none";
+    document.getElementById("buttonD").style.display="none";
+    document.getElementById("submit-name").style.display="none";
 };
 
 function startQuiz() {
