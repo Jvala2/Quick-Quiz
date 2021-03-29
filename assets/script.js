@@ -2,7 +2,7 @@ var timer;
 var count;
 var score; 0;
 
-
+    document.getElementById("timer").style.display="none";
     document.getElementById("quizInput").style.display="none";
     document.getElementById("buttonA").style.display="none";
     document.getElementById("buttonB").style.display="none";
@@ -34,14 +34,14 @@ function failQuiz() {
 };
 
 function startQuiz() {
-
+    document.getElementById("quizInput").style.display="block";
+    document.getElementById("buttonA").style.display="block";
+    document.getElementById("buttonB").style.display="block";
+    document.getElementById("buttonC").style.display="block";
+    document.getElementById("buttonD").style.display="block";
     displayQuestion1();
     startTimer();
-    document.getElementById("quizInput").style.display="show";
-    document.getElementById("buttonA").style.display="show";
-    document.getElementById("buttonB").style.display="show";
-    document.getElementById("buttonC").style.display="show";
-    document.getElementById("buttonD").style.display="show";
+
 };
 
 
@@ -189,4 +189,4 @@ function finalScore() {
     document.getElementById("quizInput").textContent="Final Score:" +score+""
 };
 
-document.getElementById("start").addEventListener("click").startQuiz()
+document.getElementById("start").addEventListener("click", startQuiz)
