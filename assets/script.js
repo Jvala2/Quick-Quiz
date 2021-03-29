@@ -57,7 +57,7 @@ function startQuiz() {
 
 
 function wrongAnswer1() {
-    count -= 15;
+    count -= 10;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion2();
 };
@@ -86,7 +86,7 @@ function displayQuestion1() {
 
 
 function wrongAnswer2() {
-    count -= 15;
+    count -= 10;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion3();
 };
