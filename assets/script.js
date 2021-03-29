@@ -1,7 +1,7 @@
 var timer;
 var count;
-var score; 0;
-var names; [];
+var score = 0;
+var names = [];
 
     document.getElementById("timer").style.display="none";
     document.getElementById("quizInput").style.display="none";
@@ -115,7 +115,7 @@ function displayQuestion2() {
 
 
 function wrongAnswer3() {
-    count -= 15;
+    count -= 10;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion4();
 };
@@ -143,7 +143,7 @@ function displayQuestion3() {
 
 
 function wrongAnswer4() {
-    count -= 15;
+    count -= 10;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion5();
 };
@@ -171,7 +171,7 @@ function displayQuestion4() {
 
 
 function wrongAnswer5() {
-    count -= 15;
+    count -= 10;
     document.getElementById("minus").textContent="Wrong Answer"
     finalScore();
 };
