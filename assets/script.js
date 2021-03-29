@@ -1,13 +1,16 @@
 var timer;
 var count;
 var score; 0;
+var names; [];
 
     document.getElementById("timer").style.display="none";
     document.getElementById("quizInput").style.display="none";
+    document.getElementById("enter-name").style.display="none";
     document.getElementById("buttonA").style.display="none";
     document.getElementById("buttonB").style.display="none";
     document.getElementById("buttonC").style.display="none";
     document.getElementById("buttonD").style.display="none";
+    document.getElementById("submit-name").style.display="none";
     console.log("Is this working")
 
   
@@ -17,7 +20,7 @@ function startTimer() {
     count=100;
     timer=setInterval(function(){
         count--;
-        if(count===0){
+        if(count<=0){
             failQuiz();
             clearInterval(timer);
 
@@ -28,9 +31,7 @@ function startTimer() {
 };
 
 function failQuiz() {
-
-    document.getElementById("minus").textContent="TIME'S UP!"
-
+    document.getElementById("minus").textContent="TIME'S UP!";
 };
 
 function startQuiz() {
@@ -62,7 +63,7 @@ function rightAnswer1() {
 
 function displayQuestion1() {
 
-    document.getElementById("quizInput").textContent="Commonly used data types DO NOT include:"
+    document.getElementById("quizquestion").textContent="Commonly used data types DO NOT include:"
     document.getElementById("buttonA").textContent="strings"
     document.getElementById("buttonB").textContent="booleans"
     document.getElementById("buttonC").textContent="alerts"
@@ -78,7 +79,7 @@ function displayQuestion1() {
 
 
 function wrongAnswer2() {
-    count =- 15;
+    count -= 15;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion3();
 };
@@ -91,7 +92,7 @@ function rightAnswer2() {
 
 function displayQuestion2() {
 
-    document.getElementById("quizInput").textContent="The condition in an if/else statement is enclosed within_______."
+    document.getElementById("quizquestion").textContent="The condition in an if/else statement is enclosed within_______."
     document.getElementById("buttonA").textContent="quotes"
     document.getElementById("buttonB").textContent="curly brace"
     document.getElementById("buttonC").textContent="parentheticals"
@@ -120,15 +121,15 @@ function rightAnswer3() {
 
 function displayQuestion3() {
 
-    document.getElementById("quizInput").textContent="Arrays in JavaScript can be used to store _____."
+    document.getElementById("quizquestion").textContent="Arrays in JavaScript can be used to store _____."
     document.getElementById("buttonA").textContent="numbers and strings"
     document.getElementById("buttonB").textContent="other arrays"
     document.getElementById("buttonC").textContent="booleans"
     document.getElementById("buttonD").textContent="all of the above"
-    document.getElementById("buttonA").addEventListener("click").wrongAnswer3()
-    document.getElementById("buttonB").addEventListener("click").wrongAnswer3()
-    document.getElementById("buttonC").addEventListener("click").wrongAnswer3()
-    document.getElementById("buttonD").addEventListener("click").rightAnswer3()
+    document.getElementById("buttonA").addEventListener("click", wrongAnswer3)
+    document.getElementById("buttonB").addEventListener("click", wrongAnswer3)
+    document.getElementById("buttonC").addEventListener("click", wrongAnswer3)
+    document.getElementById("buttonD").addEventListener("click", rightAnswer3)
     
 };
 
@@ -148,15 +149,15 @@ function rightAnswer4() {
 
 function displayQuestion4() {
 
-    document.getElementById("quizInput").textContent="String values must be enclosed within_____ when assigned to variables."
+    document.getElementById("quizquestion").textContent="String values must be enclosed within_____ when assigned to variables."
     document.getElementById("buttonA").textContent="commas"
     document.getElementById("buttonB").textContent="curly braces"
     document.getElementById("buttonC").textContent="quotations"
     document.getElementById("buttonD").textContent="parentheticals"
-    document.getElementById("buttonA").addEventListener("click").wrongAnswer4()
-    document.getElementById("buttonB").addEventListener("click").wrongAnswer4()
-    document.getElementById("buttonC").addEventListener("click").rightAnswer4()
-    document.getElementById("buttonD").addEventListener("click").wrongAnswer4()
+    document.getElementById("buttonA").addEventListener("click", wrongAnswer4)
+    document.getElementById("buttonB").addEventListener("click", wrongAnswer4)
+    document.getElementById("buttonC").addEventListener("click", rightAnswer4)
+    document.getElementById("buttonD").addEventListener("click", wrongAnswer4)
     
 };
 
@@ -176,23 +177,35 @@ function rightAnswer5() {
 
 function displayQuestion5() {
 
-    document.getElementById("quizInput").textContent="A very useful tool used during development and debugging for printing content to the debugger is:"
+    document.getElementById("quizquestion").textContent="A very useful tool used during development and debugging for printing content to the debugger is:"
     document.getElementById("buttonA").textContent="JavaScript"
     document.getElementById("buttonB").textContent="terminal/bash"
     document.getElementById("buttonC").textContent="for loops"
     document.getElementById("buttonD").textContent="console.log"
-    document.getElementById("buttonA").addEventListener("click").wrongAnswer5()
-    document.getElementById("buttonB").addEventListener("click").wrongAnswer5()
-    document.getElementById("buttonC").addEventListener("click").wrongAnswer5()
-    document.getElementById("buttonD").addEventListener("click").rightAnswer5()
+    document.getElementById("buttonA").addEventListener("click", wrongAnswer5)
+    document.getElementById("buttonB").addEventListener("click", wrongAnswer5)
+    document.getElementById("buttonC").addEventListener("click", wrongAnswer5)
+    document.getElementById("buttonD").addEventListener("click", rightAnswer5)
     
 };
 
 
 
 function finalScore() {
+    document.getElementById("timer").style.display="none";
+    document.getElementById("buttonA").style.display="none";
+    document.getElementById("buttonB").style.display="none";
+    document.getElementById("buttonC").style.display="none";
+    document.getElementById("buttonD").style.display="none";
     document.getElementById("enter-name").style.display="block"
-    document.getElementById("quizInput").textContent="Final Score:" +score+""
+    document.getElementById("submit-name").style.display="block"
+    document.getElementById("submit-name").addEventListener("click", pushName);
+    document.getElementById("quizquestion").textContent="Final Score:" +score+""
 };
+
+function pushName() {
+    names.push(document.getElementById("enter-name"));
+}
+
 
 document.getElementById("start").addEventListener("click", startQuiz);
