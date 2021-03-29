@@ -3,6 +3,8 @@ var count;
 var score = 0;
 var names = [];
 
+
+
     document.getElementById("timer").style.display="none";
     document.getElementById("quizInput").style.display="none";
     document.getElementById("enter-name").style.display="none";
@@ -11,8 +13,10 @@ var names = [];
     document.getElementById("buttonC").style.display="none";
     document.getElementById("buttonD").style.display="none";
     document.getElementById("submit-name").style.display="none";
-    console.log("Is this working")
+    document.getElementById("scoreboard").style.display="none";
 
+    console.log("Is this working")
+ 
   
 
 
@@ -257,7 +261,9 @@ function finalScore() {
 };
 
 function pushName() {
+    document.getElementById("scoreboard").style.display="block";
     names.push(document.getElementById("enter-name"));
+    document.getElementById("scorelist").textContent=""+names+""
 }
 
 
