@@ -57,14 +57,20 @@ function startQuiz() {
 
 
 function wrongAnswer1() {
+    console.log(count)
     count -= 10;
+    console.log("Subtract 1")
+    console.log(count)
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion2();
 };
 
 function rightAnswer1() {
     document.getElementById("minus").textContent="Correct"
+    console.log(score)
     score += 1;
+    console.log("Add 1")
+    console.log(score)
     displayQuestion2();
 };
 
@@ -86,19 +92,29 @@ function displayQuestion1() {
 
 
 function wrongAnswer2() {
+    console.log(count)
     count -= 10;
+    console.log("Subtract 2")
+    console.log(count)
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion3();
 };
 
 function rightAnswer2() {
     document.getElementById("minus").textContent="Correct"
+    console.log(score)
     score += 1;
+    console.log("Add 2")
+    console.log(score)
     displayQuestion3();
 };
 
 function displayQuestion2() {
 
+    document.getElementById("buttonA").removeEventListener("click", wrongAnswer1)
+    document.getElementById("buttonB").removeEventListener("click", wrongAnswer1)
+    document.getElementById("buttonC").removeEventListener("click", rightAnswer1)
+    document.getElementById("buttonD").removeEventListener("click", wrongAnswer1)
     document.getElementById("quizquestion").textContent="The condition in an if/else statement is enclosed within_______."
     document.getElementById("buttonA").textContent="quotes"
     document.getElementById("buttonB").textContent="curly brace"
@@ -115,19 +131,29 @@ function displayQuestion2() {
 
 
 function wrongAnswer3() {
+    console.log(count)
     count -= 10;
+    console.log("Subtract 3")
+    console.log(count)
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion4();
 };
 
 function rightAnswer3() {
     document.getElementById("minus").textContent="Correct"
+    console.log(score)
     score += 1;
+    console.log("Add 3")
+    console.log(score)
     displayQuestion4();
 };
 
 function displayQuestion3() {
 
+    document.getElementById("buttonA").removeEventListener("click", wrongAnswer2)
+    document.getElementById("buttonB").removeEventListener("click", wrongAnswer2)
+    document.getElementById("buttonC").removeEventListener("click", rightAnswer2)
+    document.getElementById("buttonD").removeEventListener("click", wrongAnswer2)
     document.getElementById("quizquestion").textContent="Arrays in JavaScript can be used to store _____."
     document.getElementById("buttonA").textContent="numbers and strings"
     document.getElementById("buttonB").textContent="other arrays"
@@ -143,19 +169,29 @@ function displayQuestion3() {
 
 
 function wrongAnswer4() {
+    console.log(count)
     count -= 10;
+    console.log("Subtract 4")
+    console.log(count)
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion5();
 };
 
 function rightAnswer4() {
     document.getElementById("minus").textContent="Correct"
+    console.log(score)
     score += 1;
+    console.log("Add 4")
+    console.log(score)
     displayQuestion5();
 };
 
 function displayQuestion4() {
 
+    document.getElementById("buttonA").removeEventListener("click", wrongAnswer3)
+    document.getElementById("buttonB").removeEventListener("click", wrongAnswer3)
+    document.getElementById("buttonC").removeEventListener("click", wrongAnswer3)
+    document.getElementById("buttonD").removeEventListener("click", rightAnswer3)
     document.getElementById("quizquestion").textContent="String values must be enclosed within_____ when assigned to variables."
     document.getElementById("buttonA").textContent="commas"
     document.getElementById("buttonB").textContent="curly braces"
@@ -171,19 +207,29 @@ function displayQuestion4() {
 
 
 function wrongAnswer5() {
+    console.log(count)
+    console.log("Subtract 5")
     count -= 10;
+    console.log(count)
     document.getElementById("minus").textContent="Wrong Answer"
     finalScore();
 };
 
 function rightAnswer5() {
     document.getElementById("minus").textContent="Correct"
+    console.log(score)
     score += 1;
+    console.log("Add 5")
+    console.log(score)
     finalScore();
 };
 
 function displayQuestion5() {
 
+    document.getElementById("buttonA").removeEventListener("click", wrongAnswer4)
+    document.getElementById("buttonB").removeEventListener("click", wrongAnswer4)
+    document.getElementById("buttonC").removeEventListener("click", rightAnswer4)
+    document.getElementById("buttonD").removeEventListener("click", wrongAnswer4)
     document.getElementById("quizquestion").textContent="A very useful tool used during development and debugging for printing content to the debugger is:"
     document.getElementById("buttonA").textContent="JavaScript"
     document.getElementById("buttonB").textContent="terminal/bash"
