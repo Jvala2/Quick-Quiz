@@ -34,6 +34,7 @@ function failQuiz() {
 };
 
 function startQuiz() {
+    document.getElementById("timer").style.display="block";
     document.getElementById("quizInput").style.display="block";
     document.getElementById("buttonA").style.display="block";
     document.getElementById("buttonB").style.display="block";
@@ -55,6 +56,7 @@ function wrongAnswer1() {
 
 function rightAnswer1() {
     document.getElementById("minus").textContent="Correct"
+    score += 1;
     displayQuestion2();
 };
 
@@ -65,10 +67,10 @@ function displayQuestion1() {
     document.getElementById("buttonB").textContent="booleans"
     document.getElementById("buttonC").textContent="alerts"
     document.getElementById("buttonD").textContent="numbers"
-    document.getElementById("buttonA").addEventListener("click").wrongAnswer1()
-    document.getElementById("buttonB").addEventListener("click").wrongAnswer1()
-    document.getElementById("buttonC").addEventListener("click").rightAnswer1()
-    document.getElementById("buttonD").addEventListener("click").wrongAnswer1()
+    document.getElementById("buttonA").addEventListener("click", wrongAnswer1)
+    document.getElementById("buttonB").addEventListener("click", wrongAnswer1)
+    document.getElementById("buttonC").addEventListener("click", rightAnswer1)
+    document.getElementById("buttonD").addEventListener("click", wrongAnswer1)
     
 };
 
@@ -83,6 +85,7 @@ function wrongAnswer2() {
 
 function rightAnswer2() {
     document.getElementById("minus").textContent="Correct"
+    score += 1;
     displayQuestion3();
 };
 
@@ -93,10 +96,10 @@ function displayQuestion2() {
     document.getElementById("buttonB").textContent="curly brace"
     document.getElementById("buttonC").textContent="parentheticals"
     document.getElementById("buttonD").textContent="square brace"
-    document.getElementById("buttonA").addEventListener("click").wrongAnswer2()
-    document.getElementById("buttonB").addEventListener("click").wrongAnswer2()
-    document.getElementById("buttonC").addEventListener("click").rightAnswer2()
-    document.getElementById("buttonD").addEventListener("click").wrongAnswer2()
+    document.getElementById("buttonA").addEventListener("click", wrongAnswer2)
+    document.getElementById("buttonB").addEventListener("click", wrongAnswer2)
+    document.getElementById("buttonC").addEventListener("click", rightAnswer2)
+    document.getElementById("buttonD").addEventListener("click", wrongAnswer2)
     
 };
 
@@ -111,6 +114,7 @@ function wrongAnswer3() {
 
 function rightAnswer3() {
     document.getElementById("minus").textContent="Correct"
+    score += 1;
     displayQuestion4();
 };
 
@@ -138,6 +142,7 @@ function wrongAnswer4() {
 
 function rightAnswer4() {
     document.getElementById("minus").textContent="Correct"
+    score += 1;
     displayQuestion5();
 };
 
@@ -165,6 +170,7 @@ function wrongAnswer5() {
 
 function rightAnswer5() {
     document.getElementById("minus").textContent="Correct"
+    score += 1;
     finalScore();
 };
 
@@ -185,8 +191,8 @@ function displayQuestion5() {
 
 
 function finalScore() {
-    document.getElementById("enter-name").style.display="show"
+    document.getElementById("enter-name").style.display="block"
     document.getElementById("quizInput").textContent="Final Score:" +score+""
 };
 
-document.getElementById("start").addEventListener("click", startQuiz)
+document.getElementById("start").addEventListener("click", startQuiz);
