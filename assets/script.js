@@ -2,13 +2,14 @@ var timer;
 var count;
 var score; 0;
 
-window.onload = function() {
+
     document.getElementById("quizInput").style.display="none";
     document.getElementById("buttonA").style.display="none";
     document.getElementById("buttonB").style.display="none";
     document.getElementById("buttonC").style.display="none";
     document.getElementById("buttonD").style.display="none";
-};
+    console.log("Is this working")
+
   
 
 
@@ -47,7 +48,7 @@ function startQuiz() {
 
 
 function wrongAnswer1() {
-    count=--15;
+    count -= 15;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion2();
 };
@@ -75,7 +76,7 @@ function displayQuestion1() {
 
 
 function wrongAnswer2() {
-    count=--15;
+    count =- 15;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion3();
 };
@@ -103,7 +104,7 @@ function displayQuestion2() {
 
 
 function wrongAnswer3() {
-    count=--15;
+    count -= 15;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion4();
 };
@@ -130,7 +131,7 @@ function displayQuestion3() {
 
 
 function wrongAnswer4() {
-    count=--15;
+    count -= 15;
     document.getElementById("minus").textContent="Wrong Answer"
     displayQuestion5();
 };
@@ -157,7 +158,7 @@ function displayQuestion4() {
 
 
 function wrongAnswer5() {
-    count=--15;
+    count -= 15;
     document.getElementById("minus").textContent="Wrong Answer"
     finalScore();
 };
